@@ -1,0 +1,96 @@
+---
+title: "DATA 607 - Week 2 Assigment"
+author: "Cassie Boylan"
+date: "9/5/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(RCurl)
+library(plyr)
+library(dplyr)
+library(visdat)
+
+```
+
+## Importing Data
+```{r import data movie_ratings}
+x <- getURL('https://raw.githubusercontent.com/cassie-boylan/Assignment-2---SQL-R/master/movie_ratings_resultset.csv')
+
+movie_ratings <- read.csv(text = x)
+```
+
+
+## Imputing Data
+
+To handle missing data in movie_ratings dataframe, I am replacing every entry of 'NULL' from the sql resultset as NA.  
+  
+Where NULL is representative of missing data entry in SQL, NA serves the same meaning in R language.  
+  
+Assigning NA to entries 'NULL' allows me to use the built-in r functionality for missing data
+
+```{r assign NA where NULL}
+movie_ratings[movie_ratings=="NULL"] <- NA
+
+```
+NA values in the particular case of this dataframe indicate where viewer surveyed did not watch the movie and did not give rating.  
+  
+I am interested in seeing from the survey data how many movies were not seen and what percentage that makes up of total count of possible ratings.  How many records are left once movies with rating NA are omitted?  What percentage of total rating count are NA?
+```{r reviewing NA ratings}
+nrow(na.omit(movie_ratings))
+round(sum(is.na(movie_ratings))/nrow(movie_ratings),2)
+
+```
+```{r visualize missing data}
+vis_miss(movie_ratings)
+```
+```{r confirm viewer rating is a numeric column}
+transform(movie_ratings, Viewer_Rating = as.numeric(Viewer_Rating)
+)
+```
+
+
+Those I surveyed indicated that of the movies they had not seen, they did not plan to see in future - indicating a lack of interest or possible distaste.   
+People tend to see movies of genres they prefer and favorably rate those movies that speak to their taste.  This sample survey likely had non-partication bias to it, where only the movies people felt interest in did they see to begin with and have a strong opinion after viewing.  
+  
+I considered dropping the rating entries where NA exist for a particular viewer with the code below:
+  
+```{r create a clean data frame}
+'movie_ratings_clean <- movie_ratings %>%
+  # Filter to remove rows with missing cust_id
+  filter(!is.na(movie_ratings$Viewer_Rating))'
+```
+  
+However, because there are so few values in this sample and to account for the probable skew to higher ratings, I am imputing missing ratings as 3 [neutral] instead.
+
+```{r impute missing values}
+movie_ratings[movie_ratings=="NA"] <- 3
+```
+
+I then looked at the aggregate mean and median of movie ratings grouped by categorical variable groupings - Movie Title, genre, and gender.  
+```{r calculate average rating by movie}
+movie_ratings %>% 
+  group_by(Movie_Title) %>%
+  summarise(
+  avg_rating = mean(Viewer_Rating, na.rm=TRUE),
+  median_rating = median(Viewer_Rating, na.rm=TRUE)
+)
+```
+```{r calculate average rating by genre}
+movie_ratings %>%
+  group_by(Movie_Genre) %>%
+  summarise(
+  avg_rating = mean(Viewer_Rating, na.rm=TRUE),
+  median_rating = median(Viewer_Rating, na.rm=TRUE)
+  )
+```
+```{r calcuate average rating by gender}
+by_gender_F <- subset(movie_ratings, Gender =='F')
+avg_rating_F = mean(movie_ratings$Viewer_Rating)
+
+```
+
+
+
