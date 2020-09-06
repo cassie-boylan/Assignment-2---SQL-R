@@ -1,0 +1,61 @@
+Movie_Title,Viewer_Rating,Movie_Genre,Viewer,Gender,Viewer_Favorite_Genre
+Parasite,5,drama,Sam,M,action
+Parasite,5,drama,Jack,M,drama
+Parasite,5,drama,Bonnie,F,drama
+Parasite,NULL,drama,Santa,F,comedy
+Parasite,5,drama,Kristen,F,comedy
+Parasite,5,drama,Emily,F,drama
+Parasite,4,drama,Rachel,F,action
+Parasite,4,drama,Mike,M,action
+Parasite,3,drama,Richie,M,drama
+Parasite,5,drama,John,M,comedy
+"Avengers: End Game",5,action,Sam,M,action
+"Avengers: End Game",5,action,Jack,M,drama
+"Avengers: End Game",NULL,action,Bonnie,F,drama
+"Avengers: End Game",4,action,Santa,F,comedy
+"Avengers: End Game",5,action,Kristen,F,comedy
+"Avengers: End Game",NULL,action,Emily,F,drama
+"Avengers: End Game",5,action,Rachel,F,action
+"Avengers: End Game",5,action,Mike,M,action
+"Avengers: End Game",4,action,Richie,M,drama
+"Avengers: End Game",5,action,John,M,comedy
+Us,3,drama,Sam,M,action
+Us,4,drama,Jack,M,drama
+Us,5,drama,Bonnie,F,drama
+Us,2,drama,Santa,F,comedy
+Us,4,drama,Kristen,F,comedy
+Us,4,drama,Emily,F,drama
+Us,NULL,drama,Rachel,F,action
+Us,5,drama,Mike,M,action
+Us,2,drama,Richie,M,drama
+Us,2,drama,John,M,comedy
+"Knives Out",4,comedy,Sam,M,action
+"Knives Out",5,comedy,Jack,M,drama
+"Knives Out",5,comedy,Bonnie,F,drama
+"Knives Out",5,comedy,Santa,F,comedy
+"Knives Out",5,comedy,Kristen,F,comedy
+"Knives Out",4,comedy,Emily,F,drama
+"Knives Out",3,comedy,Rachel,F,action
+"Knives Out",5,comedy,Mike,M,action
+"Knives Out",3,comedy,Richie,M,drama
+"Knives Out",5,comedy,John,M,comedy
+"Little Women",NULL,drama,Sam,M,action
+"Little Women",NULL,drama,Jack,M,drama
+"Little Women",5,drama,Bonnie,F,drama
+"Little Women",NULL,drama,Santa,F,comedy
+"Little Women",5,drama,Kristen,F,comedy
+"Little Women",4,drama,Emily,F,drama
+"Little Women",3,drama,Rachel,F,action
+"Little Women",NULL,drama,Mike,M,action
+"Little Women",NULL,drama,Richie,M,drama
+"Little Women",NULL,drama,John,M,comedy
+Booksmart,NULL,comedy,Sam,M,action
+Booksmart,5,comedy,Jack,M,drama
+Booksmart,4,comedy,Bonnie,F,drama
+Booksmart,5,comedy,Santa,F,comedy
+Booksmart,5,comedy,Kristen,F,comedy
+Booksmart,NULL,comedy,Emily,F,drama
+Booksmart,5,comedy,Rachel,F,action
+Booksmart,NULL,comedy,Mike,M,action
+Booksmart,NULL,comedy,Richie,M,drama
+Booksmart,3,comedy,John,M,comedy
